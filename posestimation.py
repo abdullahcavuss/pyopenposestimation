@@ -8,15 +8,15 @@ import time
 # Import Openpose (Windows)
 dir_path = os.path.dirname(os.path.realpath(__file__))
 try:
-    # Windows Import
-    sys.path.append(dir_path + '/../../python/openpose/Release');
-    os.environ['PATH']  = os.environ['PATH'] + ';' + dir_path + '/../../x64/Release;' +  dir_path + '/../../bin;'
+    # Windows Import(YOU HAVE TO CHANGE FOLDER WITH YOUR OPENPOSE PATH)
+    sys.path.append('C:/Projects/openpose/build/python/openpose/Release/')
+    os.environ['PATH']  = os.environ['PATH'] + ';'  + 'C:/Projects/openpose/build/x64/Release;' + 'C:/Projects/openpose/build/bin;'
     import pyopenpose as op
 except ImportError as e:
     print(e)
 
 params = dict()
-params["model_folder"] = "../../../models/"
+params["model_folder"] = "C:/Projects/openpose/models/"
 
 ##reading keypoints
 def getPoints(datum):
@@ -62,7 +62,7 @@ try:
         tPosition_right = abs(getPoints.r_wrist_y - getPoints.neck_y)
         tPosition_left = abs(getPoints.l_wrist_y - getPoints.neck_y)
         tPosition_throttle = abs(getPoints.neck_x - getPoints.r_wrist_x)
-
+        
         if(tPosition_right<20):
             print('go right')
         if(tPosition_left < 20):
