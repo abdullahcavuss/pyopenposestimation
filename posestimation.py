@@ -62,7 +62,7 @@ try:
         tPosition_right = abs(getPoints.r_wrist_y - getPoints.neck_y)
         tPosition_left = abs(getPoints.l_wrist_y - getPoints.neck_y)
         tPosition_throttle = abs(getPoints.neck_x - getPoints.r_wrist_x)
-        
+
         if(tPosition_right<20):
             print('go right')
         if(tPosition_left < 20):
