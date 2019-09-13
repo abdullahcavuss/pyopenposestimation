@@ -62,7 +62,11 @@ try:
         tPosition_right = abs(getPoints.r_wrist_y - getPoints.neck_y)
         tPosition_left = abs(getPoints.l_wrist_y - getPoints.neck_y)
         tPosition_throttle = abs(getPoints.neck_x - getPoints.r_wrist_x)
-
+        
+        if (tPosition_throttle<10):
+            ters = abs(getPoints.r_wrist_y - getPoints.neck_y)
+            throttle = ((abs(200-ters))/10)*2 # you can mapping from here
+            print(throttle)
         if(tPosition_right<20):
             print('go right')
         if(tPosition_left < 20):
@@ -71,11 +75,7 @@ try:
             print('go forward')
         if(tPosition_backward < 20):
             print('go backward')
-        if (tPosition_throttle<10):
-            ters = abs(getPoints.r_wrist_y - getPoints.neck_y)
-            throttle = ((abs(200-ters))/10)*2 # you can mapping from here
-            print(throttle)
-
+        
             
         cv2.imshow("posestimation", datum.cvOutputData)
         end = time.time()
